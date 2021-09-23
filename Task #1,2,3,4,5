@@ -1,0 +1,79 @@
+/*1) Проанализировать запросы, которые выполнялись на занятии, определить возможные корректировки
+ и/или улучшения (JOIN пока не применять).*/
+ /* Проанализировал, но пока возможностей для оптимизации не увидел.*/
+
+/* 2) Пусть задан некоторый пользователь. 
+Из всех друзей этого пользователя найдите человека, который больше всех общался с нашим пользователем.*/
+
+WITH user1_friends AS(
+SELECT user_id
+FROM friendship
+WHERE request_type_id = 2 AND friend_id = 1 AND user_id IN (
+SELECT friend_id
+FROM friendship
+WHERE request_type_id = 2 AND user_id = 1
+) UNION 
+SELECT IF (user_id=1,friend_id,user_id) AS friend_id
+FROM friendship
+WHERE request_type_id=1 AND confirmed_at IS NOT NULL AND (user_id=1 OR friend_id=1)
+)
+SELECT (
+SELECT CONCAT (first_name, ' ', last_name)
+FROM users
+WHERE messages.from_user_id = users.id) AS Name,
+COUNT(1) AS Score
+FROM messages
+WHERE from_user_id IN (SELECT user_id FROM user1_friends)
+AND to_user_id=1
+GROUP BY from_user_id
+ORDER BY Score DESC LIMIT 1;
+
+/* 3) Подсчитать общее количество лайков, которые получили 10 самых молодых пользователей.
+Target_types:
+1	media	1982-08-07 18:12:58
+2	posts	2010-02-01 16:34:37
+3	users	2013-12-04 22:40:38
+*/
+
+WITH yus AS (
+SELECT id
+from users
+order by birthday desc
+limit 10)
+SELECT COUNT(1) FROM likes
+WHERE target_id IN (SELECT id from yus) AND target_type_id=3;
+
+/* 4) Определить, кто больше поставил лайков (всего) - мужчины или женщины.*/
+
+SELECT gender, count(1) as Max_likes
+FROM users
+WHERE id IN (SELECT user_id FROM likes)
+GROUP BY gender
+ORDER BY gender
+LIMIT 1;
+
+/* 5) Найти 10 пользователей, которые проявляют наименьшую активность в использовании социальной сети.
+Критерием активности  выступает количество сообщений, лайков и постов, оставленных пользователем */
+
+SELECT (SELECT CONCAT(first_name, ' ', last_name) FROM users WHERE id IN (total_activ.user_id)) AS full_name,
+SUM(total_activ.total) AS summ_active
+FROM(
+SELECT from_user_id as user_id, COUNT(*) AS total FROM messages
+GROUP BY from_user_id
+UNION ALL
+SELECT user_id, COUNT(*) FROM likes
+GROUP BY user_id
+UNION ALL
+SELECT user_id, COUNT(*) FROM posts
+GROUP BY user_id) AS total_activ
+GROUP BY full_name
+ORDER BY summ_active
+LIMIT 10;
+*/
+
+
+
+
+
+
+
