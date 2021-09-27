@@ -1,0 +1,68 @@
+/* 1) Пусть задан некоторый пользователь. Из всех пользователей соц. сети найдите человека,
+который больше всех общался с выбранным пользователем (написал ему сообщений). 
+
+Выбрал 15-го по счету пользователя.*/
+
+WITH max_messages AS (
+	SELECT
+		from_user_id AS friend_of_15
+	FROM
+		messages
+	WHERE
+		to_user_id=15)
+	SELECT 
+		u.id,
+		u.first_name,
+		u.last_name,
+        COUNT(1) AS `Число сообщений`
+	FROM max_messages m
+	INNER JOIN users u ON (
+	m.friend_of_15 = u.id
+)
+    GROUP BY u.id
+    ORDER BY `Число сообщений` DESC
+    LIMIT 1;
+
+/* 2) Подсчитать общее количество лайков, которые получили пользователи младше 10 лет.
+Cкладывал лайки с постов, медиа и профилей./*
+
+WITH all_likes AS ( 
+ SELECT m.user_id AS ID_OF_USER
+FROM likes l
+INNER JOIN media m ON (
+	l.target_id = m.id 
+    AND target_type_id=1
+)
+UNION ALL
+SELECT p.user_id AS ID_OF_USER
+FROM likes l
+INNER JOIN posts p ON (
+	l.target_id = p.id
+    AND target_type_id=2
+)
+UNION ALL
+SELECT u.id AS ID_OF_USER
+FROM likes l
+INNER JOIN users u ON (
+	l.target_id = u.id
+    AND target_type_id=3)
+)
+SELECT
+COUNT(1) AS `Кол-во лайков`
+FROM all_likes a
+INNER JOIN users u ON (
+	a.ID_OF_USER = u.id
+)
+WHERE FLOOR((TO_DAYS(NOW()) - TO_DAYS(u.birthday))/365.25)<20;
+
+
+/*3) Определить кто больше поставил лайков (всего): мужчины или женщины.*/
+
+SELECT u.gender, count(1) as Max_likes
+FROM likes l
+INNER JOIN users u ON (
+	l.user_id = u.id
+)
+GROUP BY u.gender
+ORDER BY Max_likes DESC
+LIMIT 1;
