@@ -1,0 +1,94 @@
+/* 1) Создайте хранимую функцию hello(), которая будет возвращать приветствие, в зависимости
+ от текущего времени суток. С 6:00 до 12:00 функция должна возвращать фразу "Доброе утро",
+с 12:00 до 18:00 функция должна возвращать фразу "Добрый день", с 18:00 до 00:00 — "Добрый вечер",
+с 00:00 до 6:00 — "Доброй ночи". */
+
+DELIMITER //
+DROP FUNCTION IF EXISTS hello//
+CREATE FUNCTION hello()
+RETURNS VARCHAR(50) DETERMINISTIC
+BEGIN
+DECLARE sp VARCHAR(50);
+DECLARE ct TIME;
+SET ct=DATE_FORMAT(NOW(), "%H:%i");
+	IF (ct >= '06:00' AND ct <= '12:00') THEN
+  	SET sp = 'Доброе утро';
+    END IF;
+	IF (ct > '12:00' AND ct < '18:00') THEN
+  	SET sp = 'Добрый день';
+    END IF;
+    IF (ct >= '18:00' AND ct <= '24:00') THEN
+  	SET sp = 'Добрый вечер';
+    END IF;
+	IF (ct > '00:00' AND ct < '06:00') THEN
+  	SET sp = 'Доброй ночи';
+  END IF;
+  RETURN sp;
+END//
+
+SELECT hello(); 
+
+/* 2) В таблице products есть два текстовых поля: name с названием товара и description с его описанием. 
+Допустимо присутствие обоих полей или одно из них. Ситуация, когда оба поля принимают неопределенное
+значение NULL неприемлема. Используя триггеры, добейтесь того, чтобы одно из этих полей или оба поля были
+заполнены. При попытке присвоить полям NULL-значение необходимо отменить операцию. */
+
+DELIMITER //
+DROP TRIGGER IF EXISTS check_products_insert;
+CREATE TRIGGER check_products_insert BEFORE INSERT ON products
+FOR EACH ROW
+BEGIN
+  IF (NEW.name IS NULL AND NEW.description IS NULL) THEN
+  	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'INSERT canceled';
+    END IF;
+END//
+
+DELIMITER //
+DROP TRIGGER IF EXISTS check_products_update;
+CREATE TRIGGER check_products_insert BEFORE UPDATE ON products
+FOR EACH ROW
+BEGIN
+  IF (NEW.name IS NULL AND NEW.description IS NULL) THEN
+  	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'INSERT canceled';
+    END IF;
+END//
+
+INSERT INTO products
+  (name, description, price, catalog_id)
+VALUES
+  ('Intel Core i3-8100', 'Процессор для настольных персональных компьютеров, основанных на платформе Intel.', 7890.00, 1), 
+  ('Intel Core i3-8100', NULL, 7890.00, 1),
+  (NULL, 'Процессор для настольных персональных компьютеров, основанных на платформе Intel.', 7890.00, 1),
+  (NULL, NULL, 7890.00, 1);
+
+SELECT * FROM products;
+
+/* 3) (по желанию) Напишите хранимую функцию для вычисления произвольного числа Фибоначчи. Числами Фибоначчи
+называется последовательность в которой число равно сумме двух предыдущих чисел. Вызов функции FIBONACCI(10)
+должен возвращать число 55. */
+
+DELIMITER //
+DROP FUNCTION IF EXISTS FIBONACCI//
+CREATE FUNCTION FIBONACCI(n INT UNSIGNED)
+RETURNS INT DETERMINISTIC
+BEGIN
+DECLARE i INT DEFAULT 0;
+DECLARE fib1,fib2 INT DEFAULT 1;
+DECLARE fib_sum INT;
+IF (n=1 OR n=2) THEN
+  	SET fib2 = 1;
+    END IF;
+IF n>=3 THEN
+  	WHILE i < n-2 DO
+    SET fib_sum=fib1+fib2;
+    SET fib1=fib2;
+    SET fib2=fib_sum;
+    SET i = i + 1;
+	END WHILE;
+  END IF;
+  RETURN fib2;
+END//
+
+SELECT FIBONACCI(10) AS 'Число Фибоначчи';
+
+
