@@ -1,0 +1,146 @@
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (1, 1, 10, 'Nulla qui sint iure dicta placeat dolor. Blanditiis suscipit voluptatem itaque ad. Laborum explicabo aliquid odit omnis non nam debitis. Sunt quisquam laboriosam sed temporibus aspernatur dolorem animi.', '5', 'Cделка состоялась', '1989-11-20 14:37:05', '1989-08-09 04:08:08');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (2, 1, 9, 'Consequuntur explicabo et quibusdam corrupti qui. Sit sed quas aut delectus excepturi earum. Nihil veritatis iste placeat aut ut blanditiis cumque.', '4', 'Cделка состоялась', '1975-12-08 09:02:44', '1993-04-30 17:34:54');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (3, 2, 8, 'Enim a voluptatem aut aspernatur porro sapiente molestiae fugiat. Qui rem ut aut qui. Cum ut qui provident voluptate rem id. Esse cupiditate et doloremque accusantium quo impedit temporibus.', '4', 'Cделка состоялась', '1998-08-22 14:32:09', '1970-06-13 02:46:11');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (4, 2, 7, 'Libero in expedita cupiditate fuga corporis aut autem molestias. Minus doloribus minima et voluptatem commodi animi enim. Ut voluptatem enim impedit aut accusantium facere delectus qui.', '3', 'Cделка состоялась', '1990-11-14 12:33:38', '1995-08-31 10:54:56');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (5, 4, 6, 'Aut adipisci et nihil et et. Ducimus ea in numquam aut quidem reiciendis. Rem saepe reprehenderit quam error ipsam voluptate recusandae.', '3', 'Cделка состоялась', '2008-02-09 00:17:09', '2013-10-06 05:25:16');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (6, 4, 5, 'Possimus culpa dolores ipsum minus eum sint. Voluptas ea voluptatibus dolor qui laboriosam odit. Nihil incidunt atque sequi esse in quod. Praesentium exercitationem nihil qui nesciunt voluptatibus.', '5', 'Cделка состоялась', '2008-06-13 15:32:57', '1992-12-13 02:35:02');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (7, 4, 3, 'Libero ut iste asperiores tempora nobis incidunt. Quis molestiae quia qui corporis illo quo.', '2', 'Cделка не состоялась', '1988-03-02 12:25:24', '2009-06-25 11:05:58');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (8, 6, 4, 'Consequatur voluptatum culpa necessitatibus quas non. Et hic est voluptates similique totam. Deleniti tempora ipsum expedita qui asperiores eaque ut et. Aut consequatur minima reprehenderit natus culpa.', '5', 'Cделка состоялась', '1999-11-30 14:00:56', '1980-01-09 09:24:13');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (9, 8, 1, 'Impedit deleniti non reiciendis ut architecto et praesentium. Est minima inventore accusantium consequatur suscipit omnis. Culpa ut vel non corporis. Culpa sed saepe sed rerum ut.', '5', 'Cделка состоялась', '1998-08-05 02:37:07', '1993-02-04 21:19:38');
+INSERT INTO `ann_comment` (`id`, `ann_id`, `user_id`, `body`, `ann_rating`, `ann_status`, `created_at`, `updated_at`) VALUES (10, 9, 2, 'Aut consequatur odio reiciendis quae quia beatae. Nihil et qui iusto qui. Est ea natus omnis dolor dolor quia. Soluta hic ut cum ipsum consequatur alias quia.', '4', 'Cделка состоялась', '2014-01-12 17:13:23', '2013-10-14 11:50:10');
+
+
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (1, 1, 'Черновик', 'Similique assumenda ut quasi cumque distinctio molestiae ipsum eius.', 'Est recusandae eum vitae et. Atque quasi voluptas animi et quam architecto. Et non optio magnam dicta odit nobis. Et et qui alias inventore et voluptas facere.', '2007-04-30 21:58:20', 1, 'stad', '0.00', '2008-10-02 20:01:38', '1988-04-29 13:24:55');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (2, 2, 'Размещено', 'Non eligendi aut alias amet minus.', 'Quis numquam amet saepe voluptate ratione sit quia. Quaerat impedit sit corporis eos. ', '1978-05-01 07:55:19', 2, 'fort', '5015455.67', '1980-10-10 08:43:27', '2016-06-21 19:48:48');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (3, 4, 'Срок вышел', 'Officiis architecto rerum amet.', 'Fugit minus ipsum libero delectus magnam harum aperiam.', '2018-07-10 21:26:44', 3, 'fort', '4.70', '1984-06-12 01:47:08', '1975-08-29 22:50:59');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (4, 4, 'Размещено ', 'Molestiae rerum rerum et molestias recusandae quo doloremque dolorem.', 'Praesentium quia minima exercitationem. Laudantium reiciendis soluta nisi accusantium aliquid vitae quaerat perspiciatis. Cupiditate exercitationem cumque dicta nam. Voluptas quia incidunt delectus mollitia quia qui voluptas.', '1990-07-08 22:45:23', 4, 'town', '0.00', '2010-09-27 11:25:37', '2000-09-23 02:58:05');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (5, 6, 'Размещено ', 'Sint ratione dicta non necessitatibus.', 'Dolorem eaque odit minus eius. Accusantium veritatis dolore possimus officia est voluptas consequatur soluta.', '2020-03-10 22:45:12', 5, 'bury', '22.70', '1988-01-20 00:20:47', '2017-06-04 07:11:27');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (6, 6, 'Размещено', 'Distinctio ipsum officia quia porro nihil dignissimos quam.', 'Voluptatem delectus necessitatibus sed aut. Velit enim aut nobis est. Et iste repellendus animi molestiae architecto. Veniam cum ea quaerat rem velit et.', '1990-10-05 10:06:55', 6, 'port', '0.00', '2015-09-03 10:21:46', '2019-01-09 05:32:37');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (7, 8, 'Размещено', 'Aliquid quos quis reiciendis voluptatum vel ratione qui.', 'Deleniti unde atque autem sit officia illo. Quod consectetur doloribus eius. Quibusdam id animi distinctio repellendus animi id fugit non. Ipsam eligendi velit facilis et at molestiae.', '2017-11-14 02:19:57', 7, 'berg', '53759392.80', '1989-11-11 20:14:59', '2008-03-08 12:11:27');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (8, 8, 'Размещено', 'Similique nemo non quibusdam qui iste ipsam quos.', 'Delectus labore eum in ut. Et aperiam earum voluptatem velit nisi ex. Est nihil qui culpa debitis.', '2016-03-14 00:21:46', 8, 'ton', '465.60', '2018-01-14 10:12:24', '1989-01-10 19:04:20');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (9, 8, 'Размещено', 'Et commodi sed sint fugit est dolor placeat.', 'Sint expedita ab ipsum ducimus. Numquam repellat aut sapiente qui. Sed eum dolorem sequi incidunt voluptas ipsam. Est qui perspiciatis nihil sit.', '1970-03-28 09:10:22', 9, 'shire', '1179.29', '2006-08-16 21:00:10', '1979-02-22 18:11:09');
+INSERT INTO `announcement` (`id`, `category_id`, `ann_status`, `title`, `body`, `public_date`, `ann_owner_id`, `place`, `price`, `created_at`, `updated_at`) VALUES (10, 10, 'Размещено', 'Quis qui est praesentium fuga.', 'Qui quasi iure facilis sequi sequi distinctio quia. Commodi consequatur voluptate labore. Voluptas debitis ipsa et.', '1987-04-13 00:59:54', 10, 'haven', '1519568.20', '1974-08-30 15:21:52', '2003-06-25 10:43:13');
+
+
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'est', '2003-11-21 16:19:33', '1970-02-16 13:11:07');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'non', '1980-12-03 22:45:58', '1979-06-01 11:42:28');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (3, 'eius', '2016-10-25 21:55:08', '1982-08-07 05:44:50');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (4, 'perferendis', '2000-05-30 16:37:02', '2001-04-15 00:42:54');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (5, 'ab', '1974-11-11 11:47:03', '1988-02-04 12:15:49');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (6, 'eos', '2003-02-19 14:11:17', '2012-07-14 18:45:05');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (7, 'tempora', '1973-06-09 14:51:26', '2015-03-18 00:49:13');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (8, 'voluptas', '2012-12-09 13:47:08', '1978-05-23 18:55:23');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (9, 'dolor', '1992-05-12 21:47:13', '2005-02-18 11:11:33');
+INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES (10, 'quibusdam', '1970-05-05 18:26:37', '2012-04-09 00:26:08');
+
+
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (1, 'Flatleyland', '1970-10-30 00:08:45', '2000-07-06 10:14:58');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (2, 'Gislasonstad', '1977-07-23 20:56:30', '2000-10-23 14:31:13');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (3, 'Port Chandlerfort', '2008-03-17 02:04:08', '2013-11-25 11:34:18');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (4, 'New Alannaside', '2000-12-08 16:31:22', '2010-09-11 03:58:27');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (5, 'North Emmetburgh', '2018-05-11 16:09:24', '1990-04-30 18:16:48');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (6, 'East Cathrynburgh', '1972-10-08 18:42:59', '1998-05-25 21:34:11');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (7, 'Lake Trudiefurt', '2003-02-26 03:26:37', '1994-01-01 13:56:43');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (8, 'Marksborough', '2014-04-21 04:05:02', '2021-07-23 02:28:41');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (9, 'New Laura', '1974-01-17 19:01:09', '1992-10-12 23:19:32');
+INSERT INTO `cities` (`id`, `city`, `created_at`, `updated_at`) VALUES (10, 'Mckaylaville', '2004-02-20 21:01:03', '1975-09-04 13:07:32');
+
+
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (1, 1, '2012-06-24 05:07:38', '2011-05-07 05:41:41');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (2, 4, '2011-04-02 04:17:21', '1987-03-17 14:23:51');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (3, 2, '1973-01-19 19:46:47', '1981-08-23 15:29:00');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (4, 6, '2017-02-20 08:58:52', '1989-11-12 14:17:00');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (5, 8, '2006-01-14 21:41:49', '1984-03-09 13:45:11');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (6, 10, '1998-05-06 12:12:08', '1989-08-10 22:58:59');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (7, 4, '1975-07-25 00:53:03', '1986-03-18 04:30:37');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (8, 4, '2014-03-21 08:24:32', '1992-07-19 20:00:44');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (9, 3, '2002-12-08 23:15:41', '1981-07-09 15:07:18');
+INSERT INTO `cities_users` (`to_user_id`, `city_id`, `created_at`, `updated_at`) VALUES (10, 5, '1973-01-18 08:59:36', '2014-12-21 06:37:16');
+
+
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (1, 1, 10, 1, '1974-02-05 10:00:06', '1998-11-01 13:13:24');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (2, 2, 9, 2, '1979-02-10 19:29:44', '2014-09-30 15:02:36');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (3, 3, 8, 1, '2020-12-31 05:13:57', '2004-02-22 03:35:12');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (4, 4, 7, 2, '1989-03-06 05:56:09', '1979-09-04 01:54:40');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (5, 5, 7, 1, '1976-07-17 08:10:50', '1978-04-14 08:15:34');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (6, 6, 7, 2, '2004-09-14 05:59:57', '2017-03-09 23:54:39');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (7, 7, 4, 1, '1985-09-24 22:04:05', '1977-09-12 06:33:13');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (8, 8, 2, 2, '2009-01-21 21:26:29', '1977-07-27 08:12:33');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (9, 9, 1, 1, '1983-09-05 14:44:52', '1998-09-23 14:43:25');
+INSERT INTO `feedback` (`id`, `ann_id`, `user_id`, `activity_type_id`, `created_at`, `updated_at`) VALUES (10, 10, 10, 2, '1986-03-13 21:34:07', '2014-07-17 03:32:19');
+
+
+INSERT INTO `feedback_types` (`id`, `name`, `created_at`, `updated_at`) VALUES (1, 'Просмотр объявления', '1991-07-16 18:42:00', '2020-11-15 18:40:28');
+INSERT INTO `feedback_types` (`id`, `name`, `created_at`, `updated_at`) VALUES (2, 'Добавление объявления в избранное ', '2000-12-10 21:07:33', '2013-09-28 13:56:24');
+
+
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (1, 3, 'http://lorempixel.com/640/480/', '', '1', '1977-07-16 00:29:56', '1997-05-07 09:50:39');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (2, 8, 'http://lorempixel.com/640/480/', '', '1', '2004-06-06 15:18:01', '1992-09-09 17:48:53');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (3, 2, 'http://lorempixel.com/640/480/', '', '2', '2003-09-22 18:53:07', '1982-01-31 20:23:10');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (4, 1, 'http://lorempixel.com/640/480/', '', '1', '1975-07-18 00:05:31', '2018-02-28 04:00:54');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (5, 7, 'http://lorempixel.com/640/480/', '', '2', '1977-12-10 01:10:59', '2019-10-07 05:42:11');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (6, 5, 'http://lorempixel.com/640/480/', '', '3', '1970-05-08 08:11:56', '1973-11-27 04:14:53');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (7, 9, 'http://lorempixel.com/640/480/', '', '1', '2006-09-06 08:43:32', '2010-12-28 03:23:50');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (8, 7, 'http://lorempixel.com/640/480/', '', '1', '2009-10-30 21:07:05', '1993-09-24 11:43:45');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (9, 4, 'http://lorempixel.com/640/480/', '', '3', '2007-01-13 21:15:22', '1974-12-15 17:21:52');
+INSERT INTO `media_files` (`id`, `target_id`, `filename`, `metadata`, `target_type`, `created_at`, `updated_at`) VALUES (10, 8, 'http://lorempixel.com/640/480/', '', '1', '2005-08-21 22:41:23', '2013-04-25 13:29:47');
+
+UPDATE media_files SET metadata = CONCAT('{"size" : ' , FLOOR(1 + RAND() * 1000000), ', "extension" : "mp4", "duration" : ', FLOOR(1 + RAND() * 100000), '}')
+WHERE target_type = 3;
+
+UPDATE media_files SET metadata = CONCAT('{"size" : ' , FLOOR(1 + RAND() * 1000000), ', "extension" : "png", "resolution" : "', CONCAT_WS('x', FLOOR(100 + RAND() * 1000), FLOOR(100 + RAND() * 1000)), '"}')
+WHERE target_type IN (1,2);  
+
+
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (1, 1, 2, 'Et voluptate libero recusandae quo neque. Dolores est corporis aut iusto rerum deserunt.', 1, '1988-05-25 02:02:52', '2013-05-05 16:42:47');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (2, 2, 1, 'Et voluptatibus at ab aliquam vitae. Est assumenda quaerat ad praesentium debitis id sunt expedita. Porro recusandae eaque voluptatem sit facere qui voluptatem. A autem velit dolorum est mollitia.', 1, '1982-07-28 10:59:38', '2016-02-24 07:46:46');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (3, 3, 2, 'Optio iusto sit quaerat doloribus. Ipsum eos odio corrupti sunt iure excepturi dolorem.', 1, '2009-07-11 15:13:15', '1996-12-25 09:38:39');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (4, 2, 3, 'Deserunt rerum porro illum voluptas modi. Veritatis ratione aspernatur officia officia ipsa ex voluptates. Occaecati voluptas expedita cumque ullam nam harum sed. At quisquam laboriosam et dolorem quasi placeat.', 1, '1984-06-17 22:28:07', '2002-12-02 07:51:01');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (5, 6, 4, 'Consectetur ut dolor eum architecto similique ratione. Nisi nam fugit ut qui explicabo ab. Ullam quia error architecto id consectetur et.', 0, '2017-01-22 09:47:23', '2016-06-19 01:26:24');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (6, 3, 5, 'Ab ex error iure est. Harum voluptatibus quibusdam ullam harum assumenda. Molestiae quia voluptatum perspiciatis et.', 1, '1975-11-29 01:14:59', '2019-01-09 18:03:44');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (7, 10, 1, 'Ipsum maiores sequi enim ipsam laudantium. Voluptatem error et et et vel voluptatem. Autem blanditiis labore voluptates nesciunt culpa sunt voluptatem.', 1, '2001-09-30 00:50:27', '1997-02-08 15:27:50');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (8, 3, 2, 'Corporis consectetur inventore reprehenderit sit laudantium. Cupiditate et fugit magnam amet fugiat. Laboriosam aut eaque ut qui et incidunt commodi sed. Hic et voluptas nihil.', 0, '1983-11-10 12:24:20', '1997-08-15 04:08:24');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (9, 7, 3, 'Occaecati quis fugit amet a et est aut. Iure fugiat in reiciendis beatae cupiditate nihil dolores. Iure sint eligendi nihil alias quos sed minus. Dolorum eveniet architecto totam a modi.', 1, '1993-03-27 00:32:34', '1978-08-25 09:39:17');
+INSERT INTO `messages` (`id`, `from_user_id`, `to_user_id`, `body`, `is_delivered`, `created_at`, `updated_at`) VALUES (10, 3, 8, 'Et sapiente quos ut sunt quaerat eaque quaerat maiores. Animi omnis veniam veniam ipsum quo ea ducimus. Et vero quasi est est. Minus illum dolore unde dolore.', 1, '2016-11-15 01:50:47', '1971-02-03 05:47:48');
+
+
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (1, 'schuster.favian@example.com', '910.068.2248', 0, 'Offline', '5.0', '1992-05-31 18:48:38', '1975-12-22 00:27:11');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (2, 'hermann.cristian@example.org', '860.247.5920', 0, 'Online', '2.9', '1978-09-07 13:25:05', '1978-05-15 16:03:51');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (3, 'shana.smith@example.com', '(243)161-140', 0, 'Offline', '1.9', '1983-06-21 03:04:01', '2010-05-15 08:48:31');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (4, 'kmorissette@example.com', '1-245-425-76', 0, 'Offline', '3.9', '2019-05-16 17:52:48', '1974-09-04 06:56:14');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (5, 'paucek.emmanuelle@example.net', '742-738-4030', 0, 'Online', '4.6', '1983-05-26 18:55:49', '2015-05-28 01:22:22');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (6, 'neva.lueilwitz@example.org', '352-966-5158', 0, 'Online', '4.8', '2001-07-29 23:51:47', '1987-11-25 06:54:40');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (7, 'larue.kutch@example.com', '1-246-416-50', 0, 'Online', '3.1', '2017-02-03 22:27:08', '1981-07-05 08:52:00');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (8, 'diana53@example.net', '+22(7)557478', 0, 'Offline', '2.1', '1982-06-27 06:52:47', '2010-10-29 08:34:08');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (9, 'trantow.cindy@example.org', '(421)965-066', 0, 'Online', '5.0', '2013-10-21 23:16:47', '2004-04-02 10:37:57');
+INSERT INTO `profiles` (`user_id`, `email`, `phone`, `conf_status`, `status`, `rating`, `created_at`, `updated_at`) VALUES (10, 'zita99@example.net', '304.850.2928', 0, 'Online', '4.9', '1974-02-19 14:57:40', '1983-01-28 22:23:38');
+
+UPDATE profiles SET conf_status = '1' WHERE user_id IN (1,5);
+UPDATE profiles SET conf_status = '0' WHERE user_id=6;
+UPDATE profiles SET conf_status = '1' WHERE user_id IN (7,10);
+
+UPDATE profiles SET phone = CONCAT('+7', 9000000000 + FLOOR(999999999 * RAND())) WHERE user_id < 11;
+
+
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (1, 'tbernier', '8f782938e8d4d9ea4899cdbfcfd4e52fdc37b62b', '1983-01-31 22:03:17', '1998-02-17 04:13:21');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (2, 'ricky.gorczany', '10affce3db75e8864ce6ad7f6b5801cc00d42942', '2013-06-17 04:42:50', '1973-03-03 22:24:58');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (3, 'mabelle.davis', '71d60f9581ef2b6d38f73ab1419589b8c60b217c', '1994-02-05 01:50:59', '1983-08-23 13:27:16');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (4, 'murazik.kennedi', '8f3e6db6422e8e77397f7c6c5cfe78f1e4e93b2a', '1972-11-21 08:13:24', '2006-04-26 02:06:41');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (5, 'cbechtelar', '83839fe3af2f70ba76b8b99646ff019e0237a955', '1982-03-14 19:49:52', '2002-03-05 09:16:31');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (6, 'luigi30', '4d53db05ab0b1f77dc9565bce7106c2deb6a370b', '2009-10-18 06:23:52', '2000-11-10 19:54:27');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (7, 'julian.mante', 'cf396cad2a91138fc02030c583a298d851f07e99', '1987-08-25 22:35:50', '1992-06-25 07:32:24');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (8, 'msanford', '1dbbda993934985eda5191e34def64b4daaf923b', '2016-11-17 17:41:28', '2001-09-13 13:35:10');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (9, 'dillon.franecki', 'cd2ef010288cc50ae186c95d7187881fa71fc99b', '2018-03-31 16:36:19', '2006-04-27 06:01:23');
+INSERT INTO `users` (`id`, `login`, `password`, `created_at`, `updated_at`) VALUES (10, 'murray.konopelski', 'cabff701e3fb9de1854a9233ae48c76d52d732f9', '1978-07-04 06:51:12', '1993-01-10 20:11:45');
+
+
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (1, '7171.00', '1986-11-20 08:21:09', '1992-01-20 22:45:57');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (2, '21950.00', '1976-11-28 21:13:06', '1997-10-21 05:37:47');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (3, '0.00', '1976-10-27 11:53:23', '1984-11-01 22:35:33');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (4, '465.00', '1973-10-27 10:23:55', '1977-04-21 13:42:53');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (5, '76.00', '2003-11-06 15:07:19', '1990-04-03 19:27:46');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (6, '65384.00', '1973-10-13 18:07:43', '2006-02-19 22:39:25');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (7, '11147.00', '1971-10-29 13:44:26', '1994-12-05 19:30:40');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (8, '7277.00', '2018-08-15 04:51:00', '1989-07-09 08:21:17');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (9, '200.00', '2000-03-09 14:56:10', '2002-04-14 23:27:09');
+INSERT INTO `wallet` (`id`, `deposit`, `created_at`, `updated_at`) VALUES (10, '7892.00', '2016-09-10 23:55:56', '1973-12-07 23:55:20');
