@@ -1,0 +1,161 @@
+CREATE DATABASE AVITO;
+USE AVITO;
+SHOW TABLES;
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Идентификатор строки', 
+	login VARCHAR(50) NOT NULL UNIQUE COMMENT 'Имя пользователя',
+    password VARCHAR(50) NOT NULL UNIQUE COMMENT 'Пароль пользователя',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время регистрации',
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время обновления строки'
+) COMMENT 'Таблица пользователей';
+
+DROP TABLE IF EXISTS profiles;
+CREATE TABLE profiles (
+	user_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Идентификатор строки', 
+    email VARCHAR(100) NOT NULL UNIQUE COMMENT 'Email пользователя',  
+    phone VARCHAR(12) NOT NULL UNIQUE COMMENT 'Номер телефона в объявлениях',
+    conf_status BOOLEAN COMMENT 'Cтатус подтверждения личности',
+    status ENUM('Online', 'Offline') NOT NULL COMMENT 'Текущий статус (в сети/не в сети)',
+    rating DECIMAL(2,1) NOT NULL COMMENT 'Рейтинг пользователя (от 1 до 5)',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время создания строки',
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время обновленния строки'
+) COMMENT 'Таблица профилей пользователей';
+
+ALTER TABLE profiles DROP CONSTRAINT сheck_phone;
+ALTER TABLE profiles ADD CONSTRAINT сheck_phone CHECK (REGEXP_LIKE(phone, '^\\+7[0-9]{10}$')) ;
+
+ALTER TABLE profiles DROP CONSTRAINT profiles_user_id;
+ALTER TABLE profiles ADD CONSTRAINT profiles_user_id FOREIGN KEY (user_id) REFERENCES users(id);
+
+DROP TABLE IF EXISTS cities_users;
+CREATE TABLE cities_users (
+  to_user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на пользователя",
+  city_id INT UNSIGNED NOT NULL COMMENT 'Город в объявлениях',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки",
+  PRIMARY KEY (to_user_id, city_id) COMMENT 'Составной первичный ключ'
+) COMMENT "Таблица соответствия пользователя городу/области";
+
+DROP TABLE IF EXISTS cities;
+CREATE TABLE cities (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки",
+  city VARCHAR(50) COMMENT 'Город в объявлениях',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
+) COMMENT "Справочник городов и областей";
+
+ALTER TABLE cities_users DROP CONSTRAINT cities_users_to_user_id;
+ALTER TABLE cities_users DROP CONSTRAINT cities_users_city_id;
+ALTER TABLE cities_users ADD CONSTRAINT cities_users_to_user_id FOREIGN KEY (to_user_id) REFERENCES users(id); 
+ALTER TABLE cities_users ADD CONSTRAINT cities_users_city_id FOREIGN KEY (city_id) REFERENCES cities(id);
+
+
+DROP TABLE IF EXISTS messages;
+CREATE TABLE messages (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки", 
+  from_user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на отправителя сообщения",
+  to_user_id INT UNSIGNED NOT NULL COMMENT "Ссылка на получателя сообщения",
+  body TEXT NOT NULL COMMENT "Текст сообщения",
+  is_delivered BOOLEAN COMMENT "Признак доставки",
+  created_at DATETIME DEFAULT NOW() COMMENT "Время создания сообщения",
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления сообщения"
+) COMMENT "Сообщения";
+
+ALTER TABLE messages DROP CONSTRAINT messages_from_user_id;
+ALTER TABLE messages DROP CONSTRAINT messages_to_user_id;
+ALTER TABLE messages ADD CONSTRAINT messages_from_user_id FOREIGN KEY (from_user_id) REFERENCES users(id); 
+ALTER TABLE messages ADD CONSTRAINT messages_to_user_id FOREIGN KEY (to_user_id) REFERENCES users(id);
+
+DROP TABLE IF EXISTS wallet;
+CREATE TABLE wallet (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT "Идентификатор строки", 
+  deposit DECIMAL(11,2) COMMENT 'Счет в рублях',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания счета",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления счета"
+) COMMENT "Счета пользователей";
+
+ALTER TABLE wallet DROP CONSTRAINT wallet_to_user_id;
+ALTER TABLE wallet ADD CONSTRAINT wallet_to_user_id FOREIGN KEY (id) REFERENCES users(id);
+
+CREATE TABLE announcement (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Номер объявления',
+  category_id INT UNSIGNED NOT NULL COMMENT "Ссылка на категорию",
+  ann_status VARCHAR(15) NOT NULL COMMENT 'Текущий статус размещения (черновик/размещен/кончился срок размещения)',
+  title VARCHAR(255) NOT NULL COMMENT "Название объявления",
+  body TEXT NOT NULL COMMENT "Описание объявления",
+  public_date DATETIME DEFAULT NOW() COMMENT "Дата размещения",
+  ann_owner_id INT UNSIGNED NOT NULL COMMENT "Ссылка на пользователя",
+  place VARCHAR(50) COMMENT 'Место оказания услуги',
+  price DECIMAL(11,2) COMMENT 'Плата за услугу',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания объявления",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления объявления"
+) COMMENT "Объявления";
+
+ALTER TABLE announcement DROP CONSTRAINT announcement_ann_owner_id;
+ALTER TABLE announcement ADD CONSTRAINT announcement_ann_owner_id FOREIGN KEY (ann_owner_id) REFERENCES users(id);
+
+ALTER TABLE announcement DROP CONSTRAINT announcement_category_id;
+ALTER TABLE announcement ADD CONSTRAINT announcement_category_id FOREIGN KEY (category_id) REFERENCES categories(id);
+
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Номер категории',
+  name VARCHAR(100) COMMENT 'Название категории',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания категории",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления категории"
+) COMMENT = 'Категории объявлений';
+
+CREATE TABLE feedback (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Номер строки',
+	ann_id INT UNSIGNED NOT NULL COMMENT 'Ссылка на объявление',
+    user_id INT UNSIGNED NOT NULL COMMENT 'Ссылка на пользователя, просматривающего объявление',
+    activity_type_id INT UNSIGNED NOT NULL COMMENT 'Тип активности от пользователя',
+    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время создания строки',    
+    updated_at  DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время обновленния строки'
+) COMMENT = 'Просмотр или добавление в избранное объявления';
+
+ALTER TABLE feedback DROP CONSTRAINT feedback_ann_id;
+ALTER TABLE feedback ADD CONSTRAINT feedback_ann_id FOREIGN KEY (ann_id) REFERENCES announcement(id);
+
+ALTER TABLE feedback DROP CONSTRAINT feedback_user_id;
+ALTER TABLE feedback ADD CONSTRAINT feedback_user_id FOREIGN KEY (user_id) REFERENCES users(id);
+
+ALTER TABLE feedback DROP CONSTRAINT activity_type_id;
+ALTER TABLE feedback ADD CONSTRAINT feedback_activity_type_id FOREIGN KEY (activity_type_id) REFERENCES feedback_types(id);
+
+CREATE TABLE feedback_types (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Номер активности',
+  name VARCHAR(100) COMMENT 'Название активности: просмотр или добавление в избранное объявления',
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT "Время создания строки",  
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT "Время обновления строки"
+) COMMENT = 'Категории активности человека, просматривающего объявление';
+
+CREATE TABLE ann_comment (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Номер отзыва',
+	ann_id INT UNSIGNED NOT NULL COMMENT 'Ссылка на объявление',
+    user_id INT UNSIGNED NOT NULL COMMENT 'Ссылка на пользователя, пищущего отзыв по оказанной услуге',
+    body TEXT COMMENT "Текст отзыва",
+    ann_rating ENUM('1', '2' , '3' , '4', '5') NOT NULL COMMENT 'Оценка пользователя по оказанной услуге',
+    ann_status ENUM('Cделка состоялась', 'Cделка не состоялась') NOT NULL COMMENT 'Статус оказания услуги',
+    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время создания строки',    
+    updated_at  DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время обновленния строки'
+) COMMENT = 'Отзывы к объявлениям';
+
+ALTER TABLE ann_comment DROP CONSTRAINT ann_comment_ann_id;
+ALTER TABLE ann_comment ADD CONSTRAINT ann_comment_ann_id FOREIGN KEY (ann_id) REFERENCES announcement(id);
+
+ALTER TABLE ann_comment DROP CONSTRAINT ann_comment_user_id;
+ALTER TABLE ann_comment ADD CONSTRAINT ann_comment_user_id FOREIGN KEY (user_id) REFERENCES users(id);
+
+DROP TABLE IF EXISTS media_files;
+CREATE TABLE media_files (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'Идентификатор строки',
+  target_id int unsigned NOT NULL COMMENT 'Ссылка на объект, к которому добавляется фото',
+  filename VARCHAR(255) NOT NULL COMMENT "Полный путь к файлу",
+  metadata VARCHAR(100) NOT NULL COMMENT "Метаданные файла (дополнительные параметры, переменного числа в вазисимости от типа файла)",
+  target_type ENUM('1', '2' , '3') NOT NULL COMMENT '1 - фото к профилю, 2 - фото к объявлению, 3 - видео к объявлению',
+  created_at datetime DEFAULT CURRENT_TIMESTAMP COMMENT 'Дата и время создания строки',
+  updated_at datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Дата и время обновления строки'
+) COMMENT = 'Фото к профилям или фото/видео к объявлениям';
